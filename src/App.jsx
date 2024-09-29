@@ -6,10 +6,8 @@ import CoursePage from './pages/CoursePage';
 import QuizPage from './pages/QuizPage';
 import ListeningPage from './pages/ListeningPage';
 import SettingsPage from './pages/SettingsPage';
-import QuizLvl1 from './components/QuizLvl1';
-import QuizLvl2 from './components/QuizLvl2';
-import QuizLvl3 from './components/QuizLvl3';
 import Course from './components/Course';
+import Quiz from './components/Quiz';
 
 function App() {
 
@@ -21,9 +19,7 @@ function App() {
         <Route path='/kuis' element={<QuizPage />} />
         <Route path='/pendengaran' element={<ListeningPage />} />
         <Route path='/pengaturan' element={<SettingsPage />} />
-        <Route path='/quiz-lvl-1' element={<QuizLvl1 />} />
-        <Route path='/quiz-lvl-2' element={<QuizLvl2 />} />
-        <Route path='/quiz-lvl-3' element={<QuizLvl3 />} />
+        <Route path='/kuis/:id' element={<Quiz />} />
         <Route path='/kursus/:id' element={<Course />} />
       </Route>
     )

@@ -1,14 +1,15 @@
-import React, { useRef, useState } from "react";
-import { FaChevronLeft, FaChevronRight, FaCheck } from "react-icons/fa";
-import { questionsLvl2 } from "../assets/data";
-import { Link } from "react-router-dom";
+import React, { useRef, useState } from 'react'
+import { Link, useParams } from 'react-router-dom';
+import { quizzes } from '../assets/quizzes';
+import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 
-function QuizLvl2() {
+function Quiz() {
+  const { id } = useParams();
   const [index, setIndex] = useState(0);
-  const [question, setQuestion] = useState(questionsLvl2[index]);
   const [lock, setLock] = useState(false);
   const [score, setScore] = useState(0);
   const [isEnded, setIsEnded] = useState(false);
+  const question = quizzes.filter((q)=> q.id == id)[0];
 
   const ans1 = useRef(null);
   const ans2 = useRef(null);
@@ -19,7 +20,7 @@ function QuizLvl2() {
 
   const checkAnswer = (e, answer) => {
     if (!lock) {
-      if (question.answer === answer) {
+      if (question.questions[index].answer == answer) {
         if (e.target.classList.contains("parent")) {
           e.target.classList.add("bg-green-500");
         } else {
@@ -32,19 +33,18 @@ function QuizLvl2() {
         } else {
           e.target.parentElement.classList.add("bg-red-500");
         }
-        answers[question.answer - 1].current.classList.add("bg-green-500");
+        answers[question.questions[index].answer - 1].current.classList.add("bg-green-500");
       }
       setLock(true);
     }
   };
 
   const goNextQuestion = () => {
-    if (index == questionsLvl2.length - 1) {
+    if (index == question.questions.length - 1) {
       setIsEnded(true);
     }
     if (lock) {
       setIndex((prevIndex) => prevIndex + 1);
-      setQuestion(questionsLvl2[index + 1]);
       setLock(false);
       answers.map((a) => {
         a.current.classList.remove("bg-red-500");
@@ -56,7 +56,6 @@ function QuizLvl2() {
   const goPreviousQuestion = () => {
     if (index > 0 && lock) {
       setIndex((prevIndex) => prevIndex - 1);
-      setQuestion(questionsLvl2[index - 1]);
       setLock(false);
     }
   };
@@ -76,7 +75,7 @@ function QuizLvl2() {
         <>
           <div className="bg-[#2D3142] p-20 rounded-3xl">
             <p className="text-4xl font-serif text-center leading-tight break-words">
-              {question.question}
+              {question.questions[index].question}
             </p>
           </div>
 
@@ -89,7 +88,7 @@ function QuizLvl2() {
               className={`parent bg-[#EF8354] font-serif font-bold w-full h-10 flex items-center justify-between px-5 rounded-md`}
             >
               <span>A</span>
-              <span>{question.option1}</span>
+              <span>{question.questions[index].option1}</span>
               <div className=" w-6 h-6"></div>
             </button>
 
@@ -101,7 +100,7 @@ function QuizLvl2() {
               className={`parent bg-[#EF8354] font-serif font-bold w-full h-10 flex items-center justify-between px-5 rounded-md`}
             >
               <span>B</span>
-              <span>{question.option2}</span>
+              <span>{question.questions[index].option2}</span>
               <div className=" w-6 h-6"></div>
             </button>
 
@@ -113,7 +112,7 @@ function QuizLvl2() {
               className={`parent bg-[#EF8354] font-serif font-bold w-full h-10 flex items-center justify-between px-5 rounded-md`}
             >
               <span>C</span>
-              <span>{question.option3}</span>
+              <span>{question.questions[index].option3}</span>
               <div className=" w-6 h-6"></div>
             </button>
 
@@ -125,7 +124,7 @@ function QuizLvl2() {
               className={`parent bg-[#EF8354] font-serif font-bold w-full h-10 flex items-center justify-between px-5 rounded-md`}
             >
               <span>D</span>
-              <span>{question.option4}</span>
+              <span>{question.questions[index].option4}</span>
               <div className=" w-6 h-6"></div>
             </button>
           </div>
@@ -140,8 +139,8 @@ function QuizLvl2() {
               <FaChevronLeft size={32} />
             </button>
 
-            <p className="font-thin text-xl">
-              Question {index + 1}/{questionsLvl2.length}
+            <p className="font-thin text-xl font-serif">
+              Question {index + 1}/{question.questions.length}
             </p>
 
             <button
@@ -156,7 +155,7 @@ function QuizLvl2() {
         </>
       )}
     </div>
-  );
+  )
 }
 
-export default QuizLvl2;
+export default Quiz

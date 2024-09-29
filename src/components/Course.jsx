@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import ReactPlayer from "react-player";
-import { NavLink, useLoaderData, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { courses } from "../assets/courses";
 import { FaChevronRight, FaChevronLeft } from "react-icons/fa";
 
@@ -8,11 +8,10 @@ function Course() {
   const [index, setIndex] = useState(0);
   const [isEnded, setIsEnded] = useState(false);
   const { id } = useParams();
-  const course = courses.filter((c) => c.id == id);
-  const courseJSON = course[0];
+  const course = courses.filter((c) => c.id == id)[0];
 
   const goNext = () => {
-    if (index == courseJSON.topics.length - 1) {
+    if (index == course.topics.length - 1) {
       setIsEnded(true);
       return;
     }
@@ -29,7 +28,7 @@ function Course() {
     <div className="flex flex-col gap-5">
       <div className="bg-[#4F5D75] py-3 px-32 rounded-3xl">
         <ReactPlayer
-          url={`${courseJSON.topics[index].link}`}
+          url={`${course.topics[index].link}`}
           width={800}
           height={400}
           controls
@@ -39,7 +38,7 @@ function Course() {
       <div>
         <h1 className="text-4xl font-bold">TOPIC:</h1>
         <p className="text-xl mt-2 font-serif">
-          {courseJSON.topics[index].name}
+          {course.topics[index].name}
         </p>
       </div>
 
@@ -54,7 +53,7 @@ function Course() {
         </button>
 
         <p className="font-thin text-xl">
-          <span className="font-bold">{courseJSON.name}</span> | Topics {index + 1}/{courseJSON.topics.length}
+          <span className="font-bold">{course.name}</span> | Topics {index + 1}/{course.topics.length}
         </p>
 
         <button
