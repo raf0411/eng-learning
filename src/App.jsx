@@ -8,6 +8,7 @@ import ListeningPage from './pages/ListeningPage';
 import SettingsPage from './pages/SettingsPage';
 import Course from './components/Course';
 import Quiz from './components/Quiz';
+import ErrorPage from './pages/ErrorPage';
 
 function App() {
 
@@ -21,6 +22,7 @@ function App() {
         <Route path='/pengaturan' element={<SettingsPage />} />
         <Route path='/kuis/:id' element={<Quiz />} />
         <Route path='/kursus/:id' element={<Course />} />
+        <Route path='*' element={<ErrorPage />} />
       </Route>
     )
   );

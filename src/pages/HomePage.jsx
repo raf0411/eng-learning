@@ -10,7 +10,7 @@ function HomePage() {
         <p className="font-serif font-bold text-justify">
           "ENG-Learning" menawarkan fitur-fitur sederhana yang mendukung proses
           pembelajaran bahasa Inggris. Terdapat pelajaran terstruktur yang
-          dibagi berdasarkan level, serta kuis interaktif untuk menguji
+          dibagi berdasarkan level dan video-based, serta kuis interaktif untuk menguji
           pemahaman. Pengguna dapat mengakses latihan mendengar melalui audio
           untuk meningkatkan keterampilan memahami percakapan.
         </p>

@@ -63,7 +63,7 @@ function Quiz() {
   return (
     <div className="bg-[#4F5D75] p-10 py-5 rounded-3xl overflow-hidden h-full w-[1000px]">
       {isEnded ? (
-        <div className="flex items-center justify-center flex-col font-serif mt-20 gap-7">
+        <div className="flex items-center justify-center flex-col font-serif mt-20 gap-7 pb-5">
           <h1 className="text-8xl">Your Score</h1>
           <h1 className="text-[10rem] font-bold">{score}</h1>
 
@@ -73,7 +73,7 @@ function Quiz() {
         </div>
       ) : (
         <>
-          <div className="bg-[#2D3142] p-20 rounded-3xl">
+          <div className="bg-[#2D3142] p-20 rounded-3xl h-52">
             <p className="text-4xl font-serif text-center leading-tight break-words">
               {question.questions[index].question}
             </p>

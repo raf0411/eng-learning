@@ -73,7 +73,7 @@ function Sidebar() {
                   <div className="flex items-center gap-8">
                     <div className={selectedBoxStyle(isActive)}>{/* BOX */}</div>
                     <FaHeadphones className="text-xl" />
-                    <p className="text-xl font-bold">Listening</p>
+                    <p className="text-xl font-bold">Mendengar</p>
                   </div>
                 )}
             </NavLink>
