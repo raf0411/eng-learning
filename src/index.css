@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+aside::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+aside::-webkit-scrollbar-track {
+  background: #FFF; 
+}
+ 
+/* Handle */
+aside::-webkit-scrollbar-thumb {
+  background: #EF8354; 
+}
+
+aside:hover{
+  overflow-y: scroll;
+}
