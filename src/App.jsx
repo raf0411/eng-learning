@@ -10,7 +10,6 @@ import Quiz from './components/Quiz';
 import ErrorPage from './pages/ErrorPage';
 
 function App() {
-
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route path='/' element={<MainLayout />}>
