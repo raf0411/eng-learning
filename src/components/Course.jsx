@@ -3,6 +3,7 @@ import ReactPlayer from "react-player";
 import { useParams } from "react-router-dom";
 import { courses } from "../assets/courses";
 import { FaChevronRight, FaChevronLeft } from "react-icons/fa";
+import { user } from "../assets/user";
 
 function Course() {
   const [index, setIndex] = useState(0);
@@ -32,6 +33,9 @@ function Course() {
           width={800}
           height={400}
           controls
+          onEnded={() => {
+            user[0].courses[id-1].done += 1;
+          }}
         />
       </div>
 

@@ -1,5 +1,4 @@
 import { Route, createBrowserRouter, createRoutesFromElements, RouterProvider } from 'react-router-dom'
-import './App.css'
 import MainLayout from './layouts/MainLayout';
 import HomePage from './pages/HomePage';
 import CoursePage from './pages/CoursePage';

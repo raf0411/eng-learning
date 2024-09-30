@@ -2,6 +2,7 @@ import React, { useRef, useState } from 'react'
 import { Link, useParams } from 'react-router-dom';
 import { quizzes } from '../assets/quizzes';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
+import { user } from '../assets/user';
 
 function Quiz() {
   const { id } = useParams();
@@ -17,6 +18,13 @@ function Quiz() {
   const ans4 = useRef(null);
 
   const answers = [ans1, ans2, ans3, ans4];
+
+  const setUserScore = () => {
+    if (user[0].score < 100) {
+      user[0].quizzes.filter((q) => q.id == id)[0].correct = score;
+      user[0].score += Math.floor(score * 2.22);
+    }
+  };
 
   const checkAnswer = (e, answer) => {
     if (!lock) {
@@ -41,6 +49,7 @@ function Quiz() {
 
   const goNextQuestion = () => {
     if (index == question.questions.length - 1) {
+      setUserScore();
       setIsEnded(true);
     }
     if (lock) {

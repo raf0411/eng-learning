@@ -7,6 +7,7 @@ import {
   FaHeadphones,
   FaCog,
 } from "react-icons/fa";
+import logo from '../assets/logo.svg';
 
 function Sidebar() {
   const linkSelectedStyle = ({ isActive }) =>
@@ -21,8 +22,8 @@ function Sidebar() {
 
   return (
     <aside className="text-white bg-[#4F5D75] overflow-hidden min-w-[300px] rounded-3xl px-5 py-5 h-[98%] flex flex-col gap-10">
-      <NavLink to="/" className="flex items-center justify-start gap-8">
-        <img src="" alt="logo" />
+      <NavLink to="/" className="flex items-center justify-start gap-2">
+        <img src={logo} alt="logo" className="w-24"/>
         <div className="text-logo">
           <h1 className="text-5xl font-bold text-[#EF8354]">ENG-</h1>
           <h3 className="font-bold italic text-3xl">Learning</h3>
