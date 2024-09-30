@@ -8,12 +8,14 @@ import SettingsPage from './pages/SettingsPage';
 import Course from './components/Course';
 import Quiz from './components/Quiz';
 import ErrorPage from './pages/ErrorPage';
+import LoginPage from './pages/LoginPage';
 
 function App() {
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route path='/' element={<MainLayout />}>
         <Route index element={<HomePage />} />
+        <Route path='/login' element={<LoginPage />}/>
         <Route path='/kursus' element={<CoursePage />} />
         <Route path='/kuis' element={<QuizPage />} />
         <Route path='/pendengaran' element={<ListeningPage />} />
@@ -24,7 +26,6 @@ function App() {
       </Route>
     )
   );
-
 
   return <RouterProvider router={router}/>;
 }

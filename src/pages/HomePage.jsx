@@ -9,7 +9,7 @@ function HomePage() {
   return (
     <div className="flex flex-col gap-10">
       <div className="bg-[#4F5D75] flex flex-col items-start rounded-3xl p-5 px-10 w-[100%] gap-8">
-        <p className="font-serif text-2xl">Hi User!</p>
+        <p className="font-serif text-2xl">Hi {user[0].name}!</p>
         <p className="font-serif font-bold text-justify">
           "ENG-Learning" menawarkan fitur-fitur sederhana yang mendukung proses
           pembelajaran bahasa Inggris. Terdapat pelajaran terstruktur yang
